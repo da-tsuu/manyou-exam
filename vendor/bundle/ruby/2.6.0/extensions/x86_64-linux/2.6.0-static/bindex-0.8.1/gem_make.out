@@ -1,0 +1,21 @@
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/home/vagrant/.rbenv/versions/2.6.3/bin/ruby -I /home/vagrant/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191126-9122-1kbkak4.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 0.59 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 0.58 s in the future
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+make: Warning: File 'Makefile' has modification time 0.34 s in the future
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20191126-9122-1vq7au0/skiptrace/internal
+make: warning:  Clock skew detected.  Your build may be incomplete.

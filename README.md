@@ -1,24 +1,37 @@
-# README
+---
+title: 【markdown】テーブル書き方
+tags: Markdown
+author: ___inon_
+slide: false
+---
+#### Users
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|name|string|
+|e-mail|string|
+|password_digest|string|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Tasks
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|user_id(FK)|references|
+|title|string|
+|content|text|
+|deadline|date|
+|priority|string|
+|status|string|
 
-Things you may want to cover:
+#### labelings
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|task_id(FK)|references|
+|label_id(FK)|references|
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Labels
+|カラム名|データ型|
+|:--:|:--:|
+|id|integer|
+|name|string|

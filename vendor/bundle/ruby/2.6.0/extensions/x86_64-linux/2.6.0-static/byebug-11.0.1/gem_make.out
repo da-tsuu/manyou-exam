@@ -1,0 +1,25 @@
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/byebug-11.0.1/ext/byebug
+/home/vagrant/.rbenv/versions/2.6.3/bin/ruby -I /home/vagrant/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191126-9122-50hslj.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 0.57 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 0.55 s in the future
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" install
+make: Warning: File 'byebug.so' has modification time 0.57 s in the future
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20191126-9122-mtpknh/byebug
+make: warning:  Clock skew detected.  Your build may be incomplete.

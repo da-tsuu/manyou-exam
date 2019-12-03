@@ -1,7 +1,6 @@
 ---
 title: 【markdown】テーブル書き方
 tags: Markdown
-author: ___inon_
 slide: false
 ---
 #### Users

@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-require 'selenium-webdriver'
+# require 'selenium-webdriver'
 require 'webdrivers'
 
- Selenium::WebDriver::Chrome.path = ENV.fetch('GOOGLE_CHROME_BIN', nil)
+#  Selenium::WebDriver::Chrome.path = ENV.fetch('GOOGLE_CHROME_BIN', nil)
 
-options = Selenium::WebDriver::Chrome::Options.new(
-  prefs: { 'profile.default_content_setting_values.notifications': 2 },
-  binary: ENV.fetch('GOOGLE_CHROME_SHIM', nil)
-)
+# options = Selenium::WebDriver::Chrome::Options.new(
+#   prefs: { 'profile.default_content_setting_values.notifications': 2 },
+#   binary: ENV.fetch('GOOGLE_CHROME_SHIM', nil)
+# )
 
-driver = Selenium::WebDriver.for :chrome, options: options 
+# driver = Selenium::WebDriver.for :chrome, options: options 
 
 RSpec.describe Task,'タスク管理機能', type: :system do
   describe 'タスク一覧画面' do

@@ -1,10 +1,9 @@
 require "rails_helper"
 RSpec.feature "タスク管理機能", type: :feature do
   background :skip => true do
-    @task = FactoryBot.create(:task)
-    @task2 = FactoryBot.create(:second_task)
-    @task3 = FactoryBot.create(:third_task)
-    
+    FactoryBot.create(:task)
+    FactoryBot.create(:second_task)
+    FactoryBot.create(:third_task)
   end
 
   feature "タスクを作成した場合" do
@@ -41,14 +40,15 @@ RSpec.feature "タスク管理機能", type: :feature do
 
   context '複数のタスクを作成した場合' do
     scenario 'タスクが作成日時の降順に並んでいること' do
+      FactoryBot.create(:task)
+      FactoryBot.create(:second_task)
+      FactoryBot.create(:third_task)
       visit tasks_path
-      # task_list = all('#task_row')
-      # expect(task_list[0]).to have_content '3'
-      # expect(task_list[1]).to have_content '2' 
-      # expect(task_list[2]).to have_content '1' 
-      tds = page.all('tbody td')
-      expect(tds[0]).to have_content '1'
-      # all('tbody td')[0].to have_content '1' 
+      task_list = all('#task_row')
+      expect(task_list[0]).to have_content '3'
+      expect(task_list[1]).to have_content '2' 
+      expect(task_list[2]).to have_content '1' 
+  
     end
-  end  
+  end 
 end

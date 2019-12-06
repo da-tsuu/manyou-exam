@@ -208,7 +208,8 @@ ja:
   task:
     title: タスク名
     content: タスク詳細
-    show: 詳細
-    edit: 編集
-    destroy: 削除
+    Show: 詳細
+    Edit: 編集
+    Destroy: 削除
     Create New: 新規作成
+    Back: 戻る

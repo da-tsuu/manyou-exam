@@ -205,3 +205,10 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  task:
+    title: タスク名
+    content: タスク詳細
+    show: 詳細
+    edit: 編集
+    destroy: 削除
+    Create New: 新規作成

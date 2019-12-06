@@ -35,10 +35,7 @@ slide: false
 |id|integer|
 |name|string|
 
----
-title: hrokuへのデプロイ手順
-tags: Markdown
----
+# herokuへのデプロイ手順
 ## 準備
 ### config/environments/production.rbの設定
 デフォルトでfalseとなっている以下の箇所をtrueに変更

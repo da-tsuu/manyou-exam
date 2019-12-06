@@ -1,5 +1,9 @@
 current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/puma-3.12.2/ext/puma_http11
+<<<<<<< HEAD
 /home/vagrant/.rbenv/versions/2.6.3/bin/ruby -I /home/vagrant/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191206-7086-t3ld43.rb extconf.rb
+=======
+/home/vagrant/.rbenv/versions/2.6.3/bin/ruby -I /home/vagrant/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191206-5884-zh3ubm.rb extconf.rb
+>>>>>>> step3
 checking for BIO_read() in -lcrypto... yes
 checking for SSL_CTX_new() in -lssl... yes
 checking for openssl/bio.h... yes
@@ -7,12 +11,20 @@ creating Makefile
 
 current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/puma-3.12.2/ext/puma_http11
 make "DESTDIR=" clean
+<<<<<<< HEAD
 make: Warning: File 'Makefile' has modification time 1052 s in the future
+=======
+make: Warning: File 'Makefile' has modification time 1053 s in the future
+>>>>>>> step3
 make: warning:  Clock skew detected.  Your build may be incomplete.
 
 current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/puma-3.12.2/ext/puma_http11
 make "DESTDIR="
+<<<<<<< HEAD
 make: Warning: File 'Makefile' has modification time 1052 s in the future
+=======
+make: Warning: File 'Makefile' has modification time 1053 s in the future
+>>>>>>> step3
 compiling http11_parser.c
 compiling io_buffer.c
 compiling mini_ssl.c
@@ -45,6 +57,11 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 
 current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/puma-3.12.2/ext/puma_http11
 make "DESTDIR=" install
+<<<<<<< HEAD
 make: Warning: File 'Makefile' has modification time 1051 s in the future
 /usr/bin/install -c -m 0755 puma_http11.so ./.gem.20191206-7086-1b0krbe/puma
+=======
+make: Warning: File 'Makefile' has modification time 1052 s in the future
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20191206-5884-u2tc48/puma
+>>>>>>> step3
 make: warning:  Clock skew detected.  Your build may be incomplete.

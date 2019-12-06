@@ -1,5 +1,9 @@
 current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.10.7/ext/nokogiri
+<<<<<<< HEAD
 /home/vagrant/.rbenv/versions/2.6.3/bin/ruby -I /home/vagrant/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191206-7086-1leutpd.rb extconf.rb --use-system-libraries
+=======
+/home/vagrant/.rbenv/versions/2.6.3/bin/ruby -I /home/vagrant/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191206-5884-158b7hq.rb extconf.rb --use-system-libraries
+>>>>>>> step3
 checking if the C compiler accepts ... yes
 Building nokogiri using system libraries.
 checking for xmlParseDoc() in libxml/parser.h... yes
@@ -16,12 +20,20 @@ creating Makefile
 
 current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.10.7/ext/nokogiri
 make "DESTDIR=" clean
+<<<<<<< HEAD
 make: Warning: File 'Makefile' has modification time 1052 s in the future
+=======
+make: Warning: File 'Makefile' has modification time 1053 s in the future
+>>>>>>> step3
 make: warning:  Clock skew detected.  Your build may be incomplete.
 
 current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.10.7/ext/nokogiri
 make "DESTDIR="
+<<<<<<< HEAD
 make: Warning: File 'Makefile' has modification time 1052 s in the future
+=======
+make: Warning: File 'Makefile' has modification time 1053 s in the future
+>>>>>>> step3
 compiling html_document.c
 In file included from /home/vagrant/.rbenv/versions/2.6.3/include/ruby-2.6.0/ruby.h:33:0,
                  from ./nokogiri.h:33,
@@ -451,6 +463,11 @@ make: warning:  Clock skew detected.  Your build may be incomplete.
 
 current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/nokogiri-1.10.7/ext/nokogiri
 make "DESTDIR=" install
+<<<<<<< HEAD
 make: Warning: File 'Makefile' has modification time 1045 s in the future
 /usr/bin/install -c -m 0755 nokogiri.so ./.gem.20191206-7086-16pg9lw/nokogiri
+=======
+make: Warning: File 'Makefile' has modification time 1046 s in the future
+/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20191206-5884-1axceb4/nokogiri
+>>>>>>> step3
 make: warning:  Clock skew detected.  Your build may be incomplete.

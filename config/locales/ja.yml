@@ -211,5 +211,9 @@ ja:
     Show: 詳細
     Edit: 編集
     Destroy: 削除
-    Create New: 新規作成
     Back: 戻る
+    Create New: 新規作成
+    status: ステータス
+    priority: 優先順位
+    expiration: 終了期限
+    Editing Task: タスク編集

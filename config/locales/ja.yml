@@ -208,7 +208,12 @@ ja:
   task:
     title: タスク名
     content: タスク詳細
-    show: 詳細
-    edit: 編集
-    destroy: 削除
+    Show: 詳細
+    Edit: 編集
+    Destroy: 削除
+    Back: 戻る
     Create New: 新規作成
+    status: ステータス
+    priority: 優先順位
+    expiration: 終了期限
+    Editing Task: タスク編集

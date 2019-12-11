@@ -15,4 +15,29 @@ RSpec.feature 'タスク管理機能', type: :model do
     task = Task.new(title: '成功テスト', content: '成功')
     expect(task).to be_valid
   end
+
+  context 'ステータス検索' do
+    scenario '検索ワード：完了 → 1件'do
+      FactoryBot.create(:task)
+      FactoryBot.create(:second_task)
+      expect(Task.search_status( "2" ).count).to eq 1
+    end
+  end
+
+  context 'タイトル検索' do
+    scenario '検索ワード 2 ： → 1件'do
+      FactoryBot.create(:task)
+      FactoryBot.create(:second_task)
+      expect(Task.search_title( "2" ).count).to eq 1
+    end
+  end
+
+  context 'タイトルとステータス検索' do
+    scenario '検索ワード : 完了　:1 →　1件' do
+      FactoryBot.create(:task)
+      FactoryBot.create(:second_task)
+      expect(Task.search_status("2").search_title("1").count).to eq 1
+    end
+  end
+
 end

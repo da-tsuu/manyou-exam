@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+  <%= form.select(:status, {未着手: '未着手', 着手中: '着手中', 完了: '完了'}, { class: "form_status__select" }) %>
+  <%= form.select(:priority, {高: '高', 中: '中', 低: '低'}, { class: "form_priority__select" }) %>
+  <%= form.date_field :expiration %>
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>

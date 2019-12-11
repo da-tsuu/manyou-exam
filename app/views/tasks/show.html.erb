@@ -1,14 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('task.title') %> :</strong>
   <%= @task.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong><%= t('task.content') %>:</strong>
   <%= @task.content %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<p>
+  <strong><%= t('task.status') %>:</strong>
+  <%= @task.status %>
+</p>
+
+<p>
+  <strong><%= t('task.priority') %>:</strong>
+  <%= @task.priority %>
+</p>
+
+<p>
+  <strong><%= t('task.expiration') %>:</strong>
+  <%= @task.expiration %>
+</p>
+
+<%= link_to t('task.Edit'), edit_task_path(@task) %> |
+<%= link_to t('task.Back'), tasks_path %>

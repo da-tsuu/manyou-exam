@@ -4,14 +4,14 @@ class TasksController < ApplicationController
   # GET /tasks
   def index
     if params[:sort_expiration]
-      @tasks = Task.all.order(expiration: "asc").page(params[:page]).per(15)
+      @tasks = Task.where(user_id: current_user.id).order(expiration: "asc").page(params[:page]).per(15)
     elsif params[:sort_priority]
-      @tasks = Task.order(priority: "asc").page(params[:page]).per(15)
+      @tasks = Task.where(user_id: current_user.id).order(priority: "asc").page(params[:page]).per(15)
     elsif params[:title] && params[:status]
       @status = params[:status].to_i
-      @tasks = Task.search_title(params[:title]).search_status(@status).page(params[:page]).per(15)
+      @tasks = Task.where(user_id: current_user.id).search_title(params[:title]).search_status(@status).page(params[:page]).per(15)
     else
-      @tasks = Task.order(created_at: :desc).page(params[:page]).per(15)
+      @tasks = Task.where(user_id: current_user.id).order(created_at: :desc).page(params[:page]).per(15)
     end
     
   end

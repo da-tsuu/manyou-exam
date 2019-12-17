@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :user_permission, only: [:show]
+  before_action :user_prohibit, only: [:new]
   # def index
   #   @users = User.all
   # end
@@ -9,27 +10,18 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
-  end
-
-  def edit
+    @user = User.new    
   end
 
   def create
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      flash[:success] ='Signed up!!'
+      log_in @user
+      redirect_to @user
     else
       render :new
-    end
-  end
-
-  def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
-    else
-      render :edit
     end
   end
 
@@ -46,4 +38,18 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :admin)
     end
+
+    def user_permission
+      if @user.id != current_user.id
+        redirect_to user_path(current_user.id)
+      end
+    end
+
+    def user_prohibit
+      if logged_in?
+        redirect_to tasks_path
+      end 
+    end
+
+
 end

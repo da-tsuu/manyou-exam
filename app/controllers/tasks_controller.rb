@@ -1,9 +1,19 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :not_user_block, only: [:new, :index]
   # GET /tasks
   def index
-    @tasks = Task.all
+    if params[:sort_expiration]
+      @tasks = Task.where(user_id: current_user.id).order(expiration: "asc").page(params[:page]).per(15)
+    elsif params[:sort_priority]
+      @tasks = Task.where(user_id: current_user.id).order(priority: "asc").page(params[:page]).per(15)
+    elsif params[:title] && params[:status]
+      @status = params[:status].to_i
+      @tasks = Task.where(user_id: current_user.id).search_title(params[:title]).search_status(@status).page(params[:page]).per(15)
+    else
+      @tasks = Task.where(user_id: current_user.id).order(created_at: :desc).page(params[:page]).per(15)
+    end
+    
   end
 
   # GET /tasks/1
@@ -22,6 +32,7 @@ class TasksController < ApplicationController
   # POST /tasks
   def create
     @task = Task.new(task_params)
+    @task.user_id = current_user.id
 
     if @task.save
       redirect_to @task, notice: 'Task was successfully created.'
@@ -53,6 +64,12 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:title, :content)
+      params.require(:task).permit(:title, :content, :expiration, :status, :priority )
     end
+
+    def not_user_block
+      if logged_in? == false
+       redirect_to new_session_path
+     end
+   end
 end

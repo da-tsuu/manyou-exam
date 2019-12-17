@@ -1,0 +1,25 @@
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.11/ext/mri
+/home/vagrant/.rbenv/versions/2.6.3/bin/ruby -I /home/vagrant/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191217-7769-63ypc4.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 0.61 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 0.6 s in the future
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/workspace/manyou_exam/manyou_app/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" install
+make: Warning: File 'bcrypt_ext.so' has modification time 0.61 s in the future
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20191217-7769-or314h
+make: warning:  Clock skew detected.  Your build may be incomplete.

@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  before_action :not_user_block, only: [:new, :index]
   # GET /tasks
   def index
     if params[:sort_expiration]
@@ -66,4 +66,10 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :content, :expiration, :status, :priority )
     end
+
+    def not_user_block
+      if logged_in? == false
+       redirect_to new_session_path
+     end
+   end
 end

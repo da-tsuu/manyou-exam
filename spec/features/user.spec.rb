@@ -83,6 +83,26 @@ RSpec.feature "Users", type: :feature do
       end
     end
   end
+
+  feature "adminがユーザーを削除した場合" do 
+    scenario "ユーザーが削除されること" do
+      @user = FactoryBot.create(:AdminUser)
+      visit new_session_path
+      fill_in 'Email', with: 'admin@aaa.aaa'
+      fill_in 'Password', with: 'Admin1'
+      click_on 'Log in'
+      visit new_admin_user_path
+      fill_in 'Name', with: 'sample'
+      fill_in 'Email', with: 'sample@aaa.aaa'
+      fill_in 'Password', with: 'sample'
+      click_on 'Go!'
+      all(:id, 'destroy')[0].click_on
+
+      expect(page).not_to have_content "sample" 
+
+    end
+  end
+
 end
 
 

@@ -1,11 +1,5 @@
 require "rails_helper"
 RSpec.feature "タスク管理機能", type: :feature do
-  background :skip => true do
-    FactoryBot.create(:task)
-    FactoryBot.create(:second_task)
-    FactoryBot.create(:third_task)
-  end
-
   feature "タスクを作成した場合" do
     scenario "作成済みのタスクが表示されること" do
       task = FactoryBot.create(:task, title: '5')

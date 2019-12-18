@@ -45,19 +45,44 @@ RSpec.feature "Users", type: :feature do
       fill_in 'Email', with: 'sample@aaa.aaa'
       fill_in 'Password', with: 'sample'
       click_on 'Go!'
-      binding.irb
-#      first('li')[1].click_on 'Detail'
-    #   first('li div a').click_link
-      all('a')[4].click_on 'Detail'
+      all(:id, 'detail')[0].click_on
       expect(page).to have_content "Admin: false" 
 
     end
   end
-      
 
+  feature "adminがadminユーザーを作成した場合" do 
+    scenario "adminがtrueのユーザーが作成されること" do
+      @user = FactoryBot.create(:AdminUser)
+      visit new_session_path
+      fill_in 'Email', with: 'admin@aaa.aaa'
+      fill_in 'Password', with: 'Admin1'
+      click_on 'Log in'
+      visit new_admin_user_path
+      fill_in 'Name', with: 'sample'
+      fill_in 'Email', with: 'sample@aaa.aaa'
+      fill_in 'Password', with: 'sample'
+      check "Admin Right"
+      click_on 'Go!'
+      all(:id, 'detail')[0].click_on
+      expect(page).to have_content "Admin: true" 
 
-  
+    end
+  end
 
+  feature "adminではないユーザーがログインして" do
+    context 'admin画面に移動しようとした場合' do
+      scenario "admin画面には飛ばずタスク一覧画面に遷移すること" do
+        FactoryBot.create(:user)
+        visit new_session_path
+        fill_in 'Email', with: 'user@aaa.aaa'
+        fill_in 'Password', with: 'MyString'
+        click_on 'Log in'
+        visit admin_users_path
+        expect(page).to have_content "Tasks Index"     
+      end
+    end
+  end
 end
 
 

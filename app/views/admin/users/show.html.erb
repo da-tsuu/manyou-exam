@@ -15,5 +15,26 @@
   <%= @user.admin %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<table>
+  <thead>
+      <tr>
+        <th><%= t('task.title') %></th>
+        <th><%= t('task.content')%></th>
+      </tr>
+  </thead>
+  <br>
+  <tbody>
+      <% @user.task.each do |task| %>
+        <tr>
+          <td id="task_row" ><%= task.title %></td>
+          <td><%= task.content %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+    
+
+<%= link_to 'Edit', edit_admin_user_path(@user) %> |
 <%= link_to 'Back', tasks_path %>

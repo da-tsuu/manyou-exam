@@ -103,6 +103,21 @@ RSpec.feature "Users", type: :feature do
     end
   end
 
+  feature "adminがユーザー1人しかいない場合" do 
+    scenario "adminユーザーが削除されないこと" do
+      @user = FactoryBot.create(:AdminUser)
+      visit new_session_path
+      fill_in 'Email', with: 'admin@aaa.aaa'
+      fill_in 'Password', with: 'Admin1'
+      click_on 'Log in'
+      visit admin_users_path
+      all(:id, 'destroy')[0].click_on
+
+      expect(page).not_to have_content "sample少なくとも1つのAdminユーザーが必要です" 
+    end
+  end
+
+
 end
 
 

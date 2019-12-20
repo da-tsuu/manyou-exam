@@ -29,7 +29,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if User.where(admin: true).size >= 2 && @user == current_user
+      @user.update(user_params)
       flash[:success] ="Edit user!"
       redirect_to admin_users_path
     else
@@ -40,16 +41,24 @@ class Admin::UsersController < ApplicationController
 
   
   def destroy
-    if @user.destroy
+    if @user.admin == true
+      if User.where(admin: true).size >= 2
+        @user.detroy
+        flash[:danger] ="Delete user!"
+        redirect_to admin_users_path
+      else
+        flash[:success] ="少なくとも1つのAdminユーザーが必要です"
+        redirect_to admin_user_path(@user)
+      end
+    else
+      @user.destroy
       flash[:danger] ="Delete user!"
       redirect_to admin_users_path
-    else
-      flash[:success] ="少なくとも1つのAdminユーザーが必要です"
-      redirect_to admin_user_path(@user)
     end
   end
 
   private
+
   def set_user
     @user = User.find(params[:id])
   end

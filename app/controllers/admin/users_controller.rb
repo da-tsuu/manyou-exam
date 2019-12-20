@@ -29,7 +29,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if User.where(admin: true).size >= 2 && @user == current_user
+     if @user.id == current_user.id && params[admin:false] && User.where(admin: true).size >= 1
       @user.update(user_params)
       flash[:success] ="Edit user!"
       redirect_to admin_users_path

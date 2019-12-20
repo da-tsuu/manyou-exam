@@ -22,6 +22,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
+    @count_admin = User.where(admin: true).length
   end
 
   def show
@@ -29,31 +30,21 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-     if @user.id == current_user.id && params[admin:false] && User.where(admin: true).size >= 1
-      @user.update(user_params)
-      flash[:success] ="Edit user!"
-      redirect_to admin_users_path
+    if @user.update(user_params)
+      redirect_to admin_users_path, success: '更新に成功しました!'
     else
-      flash[:danger] ="Failed.."
-      render "edit"
+      render 'edit', danger: '更新に失敗しました!'
     end
   end
 
-  
+
   def destroy
-    if @user.admin == true
-      if User.where(admin: true).size >= 2
-        @user.detroy
-        flash[:danger] ="Delete user!"
-        redirect_to admin_users_path
-      else
-        flash[:success] ="少なくとも1つのAdminユーザーが必要です"
-        redirect_to admin_user_path(@user)
-      end
-    else
-      @user.destroy
+    if @user.destroy
       flash[:danger] ="Delete user!"
       redirect_to admin_users_path
+    else
+      flash[:success] ="少なくとも1つのAdminユーザーが必要です"
+      redirect_to admin_user_path(@user)
     end
   end
 

@@ -21,7 +21,7 @@
           <div id = "destroy">
             <%= link_to "Destroy", admin_user_path(user.id), method: :delete, data: { confirm: '本当に削除してよろしいですか？' },class:'btn btn-info btn-xs' %>
           </div>
-          タスク投稿数: <%= user.task.size %>
+          タスク投稿数: <%= user.tasks.size %>
       </div>
     </li>
   <% end %> 

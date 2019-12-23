@@ -25,5 +25,12 @@
   <%= @task.expiration %>
 </p>
 
+<p>
+  <strong><%= "ラベル" %>:</strong>
+  <% @task.task_labels.each do |task_label| %>
+    <strong><%= task_label.label.title %><br></strong>
+  <% end %>
+</p>
+
 <%= link_to t('task.Edit'), edit_task_path(@task) %> |
 <%= link_to t('task.Back'), tasks_path %>

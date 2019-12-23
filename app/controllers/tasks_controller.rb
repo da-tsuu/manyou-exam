@@ -1,35 +1,34 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :not_user_block, only: [:new, :index]
-  # GET /tasks
+
   def index
     if params[:sort_expiration]
       @tasks = Task.where(user_id: current_user.id).order(expiration: "asc").page(params[:page]).per(15)
     elsif params[:sort_priority]
       @tasks = Task.where(user_id: current_user.id).order(priority: "asc").page(params[:page]).per(15)
-    elsif params[:title] && params[:status]
+    elsif params[:title] && params[:status] && params[:label_ids]
       @status = params[:status].to_i
-      @tasks = Task.where(user_id: current_user.id).search_title(params[:title]).search_status(@status).page(params[:page]).per(15)
+      @label_id = params[:label_ids]
+      @tasl_labels = TaskLabel.where(label_id: @label_id).pluck(:task_id)
+      @tasks = Task.search_label(@tasl_labels).page(params[:page]).per(15)
+    elsif params[:title] && params[:status]
+        @tasks = Task.where(user_id: current_user.id).search_title(params[:title]).search_status(@status).page(params[:page]).per(15)
     else
       @tasks = Task.where(user_id: current_user.id).order(created_at: :desc).page(params[:page]).per(15)
     end
-    
   end
 
-  # GET /tasks/1
   def show
   end
 
-  # GET /tasks/new
   def new
     @task = Task.new
   end
 
-  # GET /tasks/1/edit
   def edit
   end
 
-  # POST /tasks
   def create
     @task = Task.new(task_params)
     @task.user_id = current_user.id
@@ -41,7 +40,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
       redirect_to @task, notice: 'Task was successfully updated.'
@@ -50,26 +48,23 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /tasks/1
   def destroy
     @task.destroy
     redirect_to tasks_url, notice: 'Task was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def task_params
-      params.require(:task).permit(:title, :content, :expiration, :status, :priority )
-    end
+  def task_params
+    params.require(:task).permit(:title, :content, :expiration, :status, :priority, label_ids: []  )
+  end
 
-    def not_user_block
-      if logged_in? == false
-       redirect_to new_session_path
-     end
+  def not_user_block
+    if logged_in? == false
+     redirect_to new_session_path
    end
+ end
 end

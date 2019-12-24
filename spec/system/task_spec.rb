@@ -100,5 +100,14 @@ RSpec.describe 'タスク管理機能', type: :system do
       end
     end
   end
+
+  describe 'タスク一覧' do
+    context 'ラベル検索した場合' do
+      it '検索結果が表示されること' do
+      expect(Task.search_status("0").search_title("test_task").search_label("1").count).to eq 1
+      end
+    end
+  end
+
 end
 
